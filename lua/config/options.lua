@@ -1,0 +1,11 @@
+vim.opt.relativenumber = true -- relative line numbers
+vim.opt.shiftwidth = 4 -- set shiftwidth
+vim.opt.expandtab = true -- use spaces instead of tab sa
+vim.opt.tabstop = 4 -- set number of spaces per tab
+vim.opt.showmatch = true -- show matching parentheses
+vim.opt.incsearch = true -- display search result as you type
+vim.opt.hlsearch = true -- highlight search results
+vim.opt.clipboard = "unnamedplus" -- enable clipboard support
+vim.opt.ruler = true -- display line and column nuemr in the status line
+vim.opt.scrolloff = 5 -- scroll past last line
+vim.opt.wrap = true -- enable line wrapping
