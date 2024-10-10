@@ -6,6 +6,7 @@ vim.opt.showmatch = true -- show matching parentheses
 vim.opt.incsearch = true -- display search result as you type
 vim.opt.hlsearch = true -- highlight search results
 vim.opt.ruler = true -- display line and column nuemr in the status line
+vim.opt.showcmd = false -- disable showcmd because it slows down input
 vim.opt.scrolloff = 5 -- scroll past last line
 vim.opt.wrap = true -- enable line wrapping
 vim.diagnostic.config({signs = false}) -- disable LSP signs
