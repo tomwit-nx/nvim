@@ -6,3 +6,4 @@ vim.keymap.set("n", "<leader>y", "\"+y") -- copy to system clipboard (normal mod
 vim.keymap.set("v", "<leader>y", "\"+y") -- copy to system clipboard (visual mode)
 vim.keymap.set("n", "<leader>d", "m`yyp``j") -- duplicate line but leave cursor on same column
 vim.keymap.set("n", "<leader>D", "m`yyP``k") -- duplicate line but leave cursor on same column
+vim.keymap.set("v", "p", '"_dP', {noremap = true, silent = true}) -- paste text without yanking it
