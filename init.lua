@@ -33,3 +33,16 @@ lspconfig.ruff.setup {
     }
   }
 }
+
+-- YAML specific settings
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { "*" },
+  callback = function(args) 
+    local ft = vim.bo[args.buf].filetype
+    if ft == "yaml" then
+        vim.api.nvim_command("colorscheme vim")
+    else
+        vim.api.nvim_command("colorscheme gruber-darker")
+    end
+ end
+})
