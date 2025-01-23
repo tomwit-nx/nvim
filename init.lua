@@ -40,7 +40,7 @@ vim.api.nvim_create_autocmd('FileType', {
   callback = function(args) 
     local ft = vim.bo[args.buf].filetype
     if ft == "yaml" then
-        vim.api.nvim_command("colorscheme vim")
+        vim.api.nvim_command("colorscheme retrobox")
     else
         vim.api.nvim_command("colorscheme gruber-darker")
     end
