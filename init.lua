@@ -8,14 +8,6 @@ vim.cmd.colorscheme("gruber-darker")
 -- LSP config
 local lspconfig = require('lspconfig')
 
--- Set different colorscheme for YAML files
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "yaml",
-  callback = function()
-    vim.cmd.colorscheme("retrobox")
-  end,
-})
-
 -- pyright - install with snap and not Mason since it doesn't work
 lspconfig.pyright.setup({
   settings = {
