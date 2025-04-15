@@ -1,0 +1,7 @@
+alias rm='rm -i'
+alias zz='zellij --layout compact'
+alias vim='nvim'
+alias gtree='git ls-files | tree --fromfile .'
+alias gc='git commit'
+alias ga='git add'
+alias gp='git push'
