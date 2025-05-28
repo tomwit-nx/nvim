@@ -9,5 +9,4 @@ vim.opt.ruler = true -- display line and column nuemr in the status line
 vim.opt.showcmd = false -- disable showcmd because it slows down input
 vim.opt.scrolloff = 5 -- scroll past last line
 vim.opt.wrap = true -- enable line wrapping
-vim.diagnostic.config({signs = false}) -- disable LSP signs
--- vim.diagnostic.config({virtual_text = false}) -- disable LSP text
+vim.diagnostic.config({virtual_text = true, signs = false}) -- enable LSP text, disable LSP signs
