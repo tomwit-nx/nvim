@@ -46,3 +46,21 @@ vim.api.nvim_create_autocmd('FileType', {
     end
  end
 })
+
+-- YAML language server
+require('lspconfig').yamlls.setup({
+  settings = {
+    yaml = {
+      schemas = {
+        ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+        ["https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.27.0-standalone/all.json"] = "/*.k8s.yaml",
+        ["https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.27.0-standalone/all.json"] = "/*.k8s.yml",
+        kubernetes = "*.yml", -- catch-all if no specific file pattern
+      },
+      validate = true,
+      completion = true,
+      hover = true,
+    },
+  },
+})
+
