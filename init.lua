@@ -3,7 +3,7 @@ require("config.keymaps") -- Load general keymaps
 require("config.lazy") -- Load lazy package manager has to be loaded after keymaps are set (leader)
 
 -- load colorscheme
-vim.cmd.colorscheme("gruber-darker")
+vim.cmd.colorscheme("github_dark_default")
 
 -- LSP config
 local lspconfig = require('lspconfig')
@@ -35,17 +35,17 @@ lspconfig.ruff.setup {
 }
 
 -- YAML specific settings
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = { "*" },
-  callback = function(args) 
-    local ft = vim.bo[args.buf].filetype
-    if ft == "yaml" then
-        vim.api.nvim_command("colorscheme retrobox")
-    else
-        vim.api.nvim_command("colorscheme gruber-darker")
-    end
- end
-})
+-- vim.api.nvim_create_autocmd('FileType', {
+--   pattern = { "*" },
+--   callback = function(args) 
+--     local ft = vim.bo[args.buf].filetype
+--     if ft == "yaml" then
+--         vim.api.nvim_command("colorscheme retrobox")
+--     else
+--         vim.api.nvim_command("colorscheme gruber-darker")
+--     end
+--  end
+-- })
 
 -- YAML language server
 require('lspconfig').yamlls.setup({
