@@ -1,7 +1,7 @@
 local opts = {
         ensure_installed = {
                 "ruff",
-                "helm-ls",
+                "helmls",
                 "yamlls",
         },
         automatic_installation = false,
