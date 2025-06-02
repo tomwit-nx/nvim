@@ -38,12 +38,34 @@ lspconfig.ruff.setup {
 lspconfig.helm_ls.setup {
   settings = {
     ['helm-ls'] = {
+      logLevel = "info",
+      valuesFiles = {
+        mainValuesFile = "values.yaml",
+        lintOverlayValuesFile = "values.lint.yaml",
+        additionalValuesFilesGlobPattern = "values*.yaml"
+      },
       yamlls = {
-        path = "yaml-language-server",
+        enabled = false, -- This integration sucks so we disable it
       }
     }
   }
 }
 
 -- setup yamlls
-lspconfig.yamlls.setup {}
+lspconfig.yamlls.setup({
+  settings = {
+    yaml = {
+      validate = true,
+      format = { enable = true },
+      hover = true,
+      completion = true,
+      schemas = {
+        kubernetes = "*.yaml",
+        ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+        ["https://json.schemastore.org/github-action.json"] = "/.github/actions/*",
+        ["https://json.schemastore.org/chart.json"] = "Chart.yaml",
+        ["https://json.schemastore.org/kustomization.json"] = "kustomization.yaml",
+      },
+    },
+  },
+})
