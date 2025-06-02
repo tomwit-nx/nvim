@@ -34,30 +34,16 @@ lspconfig.ruff.setup {
   }
 }
 
--- YAML specific settings
--- vim.api.nvim_create_autocmd('FileType', {
---   pattern = { "*" },
---   callback = function(args) 
---     local ft = vim.bo[args.buf].filetype
---     if ft == "yaml" then
---         vim.api.nvim_command("colorscheme retrobox")
---     else
---         vim.api.nvim_command("colorscheme gruber-darker")
---     end
---  end
--- })
-
--- YAML language server
-require('lspconfig').yamlls.setup({
+-- setup helm-ls
+lspconfig.helm_ls.setup {
   settings = {
-    yaml = {
-      schemas = {
-        kubernetes = "*.yml", -- catch-all if no specific file pattern
-      },
-      validate = true,
-      completion = true,
-      hover = true,
-    },
-  },
-})
+    ['helm-ls'] = {
+      yamlls = {
+        path = "yaml-language-server",
+      }
+    }
+  }
+}
 
+-- setup yamlls
+lspconfig.yamlls.setup {}

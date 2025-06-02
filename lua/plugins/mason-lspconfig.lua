@@ -1,8 +1,11 @@
 local opts = {
-	ensure_installed = {
-		"ruff",
-	},
-	automatic_installation = false,
+        ensure_installed = {
+                "ruff",
+                "helm-ls",
+                "yamlls",
+        },
+        automatic_installation = false,
+        automatic_enable = false, -- Do NOT enable LSP servers installed by Mason. We configure them ourselves with nvim-lspconfig. Yes this is confusing because fuck you
 }
 
 return {
@@ -11,4 +14,3 @@ return {
     lazy = false,
     dependencies = "williamboman/mason.nvim",
 }
-
