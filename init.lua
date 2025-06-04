@@ -45,30 +45,27 @@ lspconfig.helm_ls.setup {
         additionalValuesFilesGlobPattern = "values*.yaml"
       },
       yamlls = {
-        enabled = false, -- This integration sucks so we disable it
+        enabled = true,
+        enabledForFilesGlob = "*.{yaml,yml}",
+        diagnosticsLimit = 50,
+        showDiagnosticsDirectly = false,
+        path = "yaml-language-server",
+        initTimeoutSeconds = 3,
+        config = {
+          schemas = {
+            kubernetes = "templates/**",
+            ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+            ["https://json.schemastore.org/github-action.json"] = "/.github/actions/*",
+            ["https://json.schemastore.org/chart.json"] = "Chart.yaml",
+            ["https://json.schemastore.org/kustomization.json"] = "kustomization.yaml",
+          },
+          completion = true,
+          hover = true,
+        }
       }
     }
   }
 }
-
--- setup yamlls
-lspconfig.yamlls.setup({
-  settings = {
-    yaml = {
-      validate = true,
-      format = { enable = true },
-      hover = true,
-      completion = true,
-      schemas = {
-        kubernetes = "*.yaml",
-        ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
-        ["https://json.schemastore.org/github-action.json"] = "/.github/actions/*",
-        ["https://json.schemastore.org/chart.json"] = "Chart.yaml",
-        ["https://json.schemastore.org/kustomization.json"] = "kustomization.yaml",
-      },
-    },
-  },
-})
 
 -- bashls
 vim.lsp.enable 'bashls'
