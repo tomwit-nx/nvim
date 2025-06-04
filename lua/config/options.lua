@@ -10,3 +10,11 @@ vim.opt.showcmd = false -- disable showcmd because it slows down input
 vim.opt.scrolloff = 5 -- scroll past last line
 vim.opt.wrap = true -- enable line wrapping
 vim.diagnostic.config({virtual_text = true, signs = false}) -- enable LSP text, disable LSP signs
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "helm" },
+	callback = function()
+		vim.opt.tabstop = 2
+		vim.opt.shiftwidth = 2
+		vim.opt.expandtab = true
+	end
+})
