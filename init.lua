@@ -67,6 +67,11 @@ lspconfig.helm_ls.setup {
   }
 }
 
+-- groovyls
+lspconfig.groovyls.setup{
+    cmd = { "java", "-jar", "/home/tom/.local/share/nvim/mason/packages/groovy-language-server/build/libs/groovy-language-server-all.jar" },
+}
+
 -- bashls
 vim.lsp.enable 'bashls'
 
