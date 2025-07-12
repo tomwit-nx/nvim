@@ -78,7 +78,6 @@ vim.lsp.enable 'bashls'
 -- oil
 require("oil").setup({
   columns = {
-    "icon",
     "permissions",
     "size",
     "mtime",
