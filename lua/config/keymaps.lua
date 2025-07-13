@@ -9,3 +9,9 @@ vim.keymap.set("n", "<leader>d", "m`yyp``j") -- duplicate line but leave cursor 
 vim.keymap.set("n", "<leader>D", "m`yyP``k") -- duplicate line but leave cursor on same column
 vim.keymap.set("v", "p", '"_dP', {noremap = true, silent = true}) -- paste text without yanking it
 vim.keymap.set("n", "`", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
+  expr = true,
+  replace_keycodes = false
+})
+vim.g.copilot_no_tab_map = true
+
