@@ -8,7 +8,7 @@ vim.keymap.set("v", "<leader>y", "\"+y") -- copy to system clipboard (visual mod
 vim.keymap.set("n", "<leader>d", "m`yyp``j") -- duplicate line but leave cursor on same column
 vim.keymap.set("n", "<leader>D", "m`yyP``k") -- duplicate line but leave cursor on same column
 vim.keymap.set("v", "p", '"_dP', {noremap = true, silent = true}) -- paste text without yanking it
-vim.keymap.set("n", "`", "<CMD>DiredGoBack<CR>", { desc = "Open parent directory" })
+vim.keymap.set("n", "`", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
   expr = true,
   replace_keycodes = false
