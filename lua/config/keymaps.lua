@@ -15,3 +15,7 @@ vim.g.copilot_no_tab_map = true
 vim.keymap.set("n", "<leader>d", ":Oil ", { desc = "Open directory" })
 vim.keymap.set("n", "<S-Up>", "5k")
 vim.keymap.set("n", "<S-Down>", "5j")
+vim.keymap.set("n", "<leader>p", function()
+  local path = vim.fn.expand("%:p")
+  vim.fn.setreg("+", path)
+end, { desc = "Copy file path to clipboard" })
