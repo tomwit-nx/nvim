@@ -6,10 +6,11 @@ require("config.lazy") -- Load lazy package manager has to be loaded after keyma
 vim.cmd.colorscheme("github_dark_default")
 
 -- LSP config
-local lspconfig = require('lspconfig')
+-- local lspconfig = vim.lsp.config
+-- local lspconfig = require('lspconfig')
 
 -- pyright - install with snap and not Mason since it doesn't work
-lspconfig.pyright.setup({
+vim.lsp.config("pyright", {
   settings = {
     pyright = {
       -- Using Ruff's import organizer
@@ -25,52 +26,14 @@ lspconfig.pyright.setup({
 })
 
 -- ruff
-lspconfig.ruff.setup {
+vim.lsp.config("ruff", {
   trace = 'messages',
   init_options = {
     settings = {
       logLevel = 'info',
     }
   }
-}
-
--- setup helm-ls
-lspconfig.helm_ls.setup {
-  settings = {
-    ['helm-ls'] = {
-      logLevel = "info",
-      valuesFiles = {
-        mainValuesFile = "values.yaml",
-        lintOverlayValuesFile = "values.lint.yaml",
-        additionalValuesFilesGlobPattern = "values*.yaml"
-      },
-      yamlls = {
-        enabled = true,
-        enabledForFilesGlob = "*.{yaml,yml}",
-        diagnosticsLimit = 50,
-        showDiagnosticsDirectly = false,
-        path = "yaml-language-server",
-        initTimeoutSeconds = 3,
-        config = {
-          schemas = {
-            kubernetes = "templates/**",
-            ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
-            ["https://json.schemastore.org/github-action.json"] = "/.github/actions/*",
-            ["https://json.schemastore.org/chart.json"] = "Chart.yaml",
-            ["https://json.schemastore.org/kustomization.json"] = "kustomization.yaml",
-          },
-          completion = true,
-          hover = true,
-        }
-      }
-    }
-  }
-}
-
--- groovyls
-lspconfig.groovyls.setup{
-    cmd = { "java", "-jar", "/home/tom/.local/share/nvim/mason/packages/groovy-language-server/build/libs/groovy-language-server-all.jar" },
-}
+})
 
 -- bashls
 vim.lsp.enable 'bashls'
