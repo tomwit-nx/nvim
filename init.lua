@@ -5,10 +5,6 @@ require("config.lazy") -- Load lazy package manager has to be loaded after keyma
 -- load colorscheme
 vim.cmd.colorscheme("github_dark_default")
 
--- LSP config
--- local lspconfig = vim.lsp.config
--- local lspconfig = require('lspconfig')
-
 -- pyright - install with snap and not Mason since it doesn't work
 vim.lsp.config("pyright", {
   settings = {
@@ -37,6 +33,8 @@ vim.lsp.config("ruff", {
 
 -- bashls
 vim.lsp.enable 'bashls'
+vim.lsp.enable 'pyright'
+vim.lsp.enable 'ruff'
 
 -- oil
 require("oil").setup({
