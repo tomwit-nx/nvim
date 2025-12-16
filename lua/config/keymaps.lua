@@ -1,6 +1,11 @@
 vim.g.mapleader = ' ' -- set leader to space
 vim.keymap.set("n", "<leader>f", ":Telescope find_files<CR>")
+vim.keymap.set("n", "<leader>df", ":Telescope find_files search_dirs={'~/repos/'}<CR>")
+
 vim.keymap.set("n", "<leader>g", ":Telescope live_grep<CR>")
+vim.keymap.set("n", "<leader>dg", ":Telescope live_grep search_dirs={'~/repos'}<CR>")
+
+vim.keymap.set("n", "<leader>r", ":Telescope git_files<CR>")
 vim.keymap.set("n", "<leader>s", ":Telescope buffers<CR>")
 vim.keymap.set("n", "<leader>q", ":Telescope current_buffer_fuzzy_find<CR>")
 vim.keymap.set("n", "<leader>y", "\"+y") -- copy to system clipboard (normal mode)
@@ -12,7 +17,7 @@ vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
   replace_keycodes = false
 })
 vim.g.copilot_no_tab_map = true
-vim.keymap.set("n", "<leader>d", ":Oil ", { desc = "Open directory" })
+vim.keymap.set("n", "<leader>o", ":Oil ", { desc = "Open directory" })
 vim.keymap.set("n", "<S-Up>", "5k")
 vim.keymap.set("n", "<S-Down>", "5j")
 vim.keymap.set("n", "<leader>p", function()
