@@ -18,3 +18,4 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt.expandtab = true
 	end
 })
+vim.filetype.add({ extension = { gotmpl = "yaml" } })
